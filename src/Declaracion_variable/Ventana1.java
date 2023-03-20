@@ -3,9 +3,14 @@ package Declaracion_variable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Ventana1 extends javax.swing.JFrame {
- //hola
+
+    DefaultTableModel addDatos;
+
+    Object[] add = new Object[2];
+    //hola
     int Indice = 0;
 
     boolean aceptacion;
@@ -36,11 +41,16 @@ public class Ventana1 extends javax.swing.JFrame {
             String[] newTextB = TextB.split(" ");
             try {
                 if (!"open".equals(newTextB[0])) {
-
+                   add[0] = "PALABRA DE ARRANQUE INVALIDA";
+                    add[1] = newTextB[0];
+                    addDatos.addRow(add);
                     analizar.append("PALABRA RESERVADA DE APERTURA ES INVALIDA" + " --> " + newTextB[0] + "\n");
                     linea1 = false;
 
                 } else {
+                    add[0] = "PALABRA DE ARRANQUE VALIDA";
+                    add[1] = newTextB[0];
+                    addDatos.addRow(add);
                     analizar.append("PALABRA RESERVADA CORRECTAMENTE" + " --> " + newTextB[0] + "\n");
                 }///IMPORTANTE HACER MA;ANA 
 
@@ -103,10 +113,7 @@ public class Ventana1 extends javax.swing.JFrame {
                     analizar.append("SIGNO DE FINAL DE UNA INSTRUCCION  CORRECTAMENTE" + " --> " + newTextBss[5] + "\n");
                 }
 
-                
 //                    linea2 = true; ////posible eroor
-                
-
 //        if (aceptacion1 == false) {
 //            linea2 = false;
 //
@@ -554,7 +561,7 @@ public class Ventana1 extends javax.swing.JFrame {
                 }
             } else {
                 linea7 = false;
-                asd.append("INGRESO DATOS DE MAS EL FINALIZAR"+ "\n");
+                asd.append("INGRESO DATOS DE MAS EL FINALIZAR" + "\n");
                 try {
                     if (!"close".equals(newTextBsds[1])) {
 
@@ -983,6 +990,8 @@ public class Ventana1 extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         analizar = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Mostrar = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("IDE_TEC");
@@ -1064,6 +1073,17 @@ public class Ventana1 extends javax.swing.JFrame {
 
         jLabel3.setText("ANALIZADOR");
 
+        Mostrar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ESTADO", "SIMBOLO"
+            }
+        ));
+        Mostrar.setMaximumSize(new java.awt.Dimension(200, 64));
+        jScrollPane4.setViewportView(Mostrar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1072,11 +1092,12 @@ public class Ventana1 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(248, 248, 248)
                         .addComponent(BtnLex, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47))
+                        .addGap(103, 103, 103)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1086,7 +1107,7 @@ public class Ventana1 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
-                        .addContainerGap())))
+                        .addGap(464, 464, 464))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1097,8 +1118,10 @@ public class Ventana1 extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(BtnLex, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(BtnLex, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1118,7 +1141,7 @@ public class Ventana1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTextActionPerformed
-
+ addDatos = (DefaultTableModel) Mostrar.getModel();
 //        linea_1();
         we();
 
@@ -1128,7 +1151,7 @@ public class Ventana1 extends javax.swing.JFrame {
             asd.append("variable NO ACEPTADA" + "\n");
         }
 
-        if (linea3 == false ||linea1 == false || linea2 == false || linea4 == false || linea5 == false || linea6 == false || linea7 == false || linea8 == false) {
+        if (linea3 == false || linea1 == false || linea2 == false || linea4 == false || linea5 == false || linea6 == false || linea7 == false || linea8 == false) {
 //            asd.append("variable ACEPTADA" + "\n");
             asd.append("LA INSTRUCCION ES INVALIDAD" + "\n");
         } else if (linea1 == true && linea2 == true && linea4 == true && linea5 == true && linea6 == true && linea7 == true && linea8 == true) {
@@ -1203,6 +1226,7 @@ public class Ventana1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnLex;
     private javax.swing.JButton BtnText;
+    private javax.swing.JTable Mostrar;
     private javax.swing.JTextArea analizar;
     private javax.swing.JTextArea asd;
     private javax.swing.JButton jButton1;
@@ -1214,6 +1238,7 @@ public class Ventana1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
