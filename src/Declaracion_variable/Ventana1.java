@@ -5,7 +5,7 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 public class Ventana1 extends javax.swing.JFrame {
-
+ //hola
     int Indice = 0;
 
     boolean aceptacion;
