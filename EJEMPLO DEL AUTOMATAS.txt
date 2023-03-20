@@ -1,0 +1,146 @@
+open / 
+ entero val : 2 ? 
+ si ( val > 0 ) { 
+ mensaje numero positivo ? 
+ } 
+ close ||
+
+--------------------------------------------------------------
+
+
+open / 
+ entero val : 2 ? 
+ si ( con > 0 ) { 
+ message numero positivo ? 
+ } 
+ si ( con < 0 ) { 
+ message numero negativo ? 
+ } 
+ close ||
+
+
+-------------------------------------------------------------------
+
+
+
+PRUEBA CORRECTA 11:30
+open / 
+ entero val : 2 ? 
+ si ( 2 > 0 ) { 
+ mensaje numero positivo ? 
+ } 
+ close ||
+
+
+
+---------------------------------------------------------------------
+
+prueba de error LINEA 1:
+
+OpEn / 
+ entero val : 2 ? 
+ si ( 2 > 0 ) { 
+ close ||
+					SOLUCIONADO
+PALABRA RESERVADA ES INVALIDA 0 
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+variable ACEPTADA
+LA INSTRUCCION ES VALIDA
+
+open 
+ entero val : 2 ? 
+ si ( 2 > 0 ) { 
+ close ||
+				SOLUCIONADO
+ASIGNACION ES INVALIDA  
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+variable ACEPTADA
+LA INSTRUCCION ES VALIDA
+
+
+---------------------------------------------------------------------------
+
+prueba de error LINEA 2:
+
+
+open / 
+ Entero val : 2 ? 
+ si ( 2 > 0 ) { 
+ close ||
+					SOLUCIONADO
+PALABRA RESERVADA ES INVALIDA 0 
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+variable NO ACEPTADA
+LA INSTRUCCION ES INVALIDA
+
+
+
+
+open / 
+ entero #val : 2 ? 
+ si ( 2 > 0 ) { 
+ close ||
+
+				SOLUCIONADO
+
+Estado q0
+variable NO ACEPTADA
+LA INSTRUCCION ES INVALIDA
+
+
+open / 
+ entero val 2 ? 
+ si ( 2 > 0 ) { 
+ close ||
+					SOLUCIONADO
+ASIGNACION ES INVALIDA  
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+variable numerica  ES INVALIDA  
+variable NO ACEPTADA
+LA INSTRUCCION ES INVALIDA
+
+
+
+open / 
+ entero val : A ? 
+ si ( 2 > 0 ) { 
+ close ||
+
+					NO SOLUCIONADO
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+Estado q1 de Aceptacion
+variable numerica  ES INVALIDA  
+variable ACEPTADA
+LA INSTRUCCION ES VALIDA
+
+				
+open / 
+ entero val : 2  
+ si ( 2 > 0 ) { 
+ close ||
+					NO SOLUCIONADO
+error en consola
+
+
+
+--------------------------------------------------------------------------------------
+
+
+
+prueba de error LINEA 3:
+
+
+
+
+
+
+
